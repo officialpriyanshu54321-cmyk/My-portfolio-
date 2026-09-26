@@ -1,0 +1,1029 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061426">
+<title>Priyanshu Kumar | Personal Portfolio</title>
+
+<style>
+:root {
+  --bg: #04101f;
+  --panel: #07182c;
+  --panel2: #0b2139;
+  --cyan: #55e4ff;
+  --text: #eaf6ff;
+  --muted: #91a9c2;
+  --line: #55e4ff24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top left, #10314d 0%, transparent 45%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--cyan);
+}
+
+.shell {
+  display: flex;
+  gap: 14px;
+  width: min(1200px, 96%);
+  min-height: 94vh;
+  margin: 3vh auto;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: #07182cbd;
+  box-shadow: 0 20px 70px #0005;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  width: 190px;
+  flex-shrink: 0;
+  padding: 18px 12px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #0b2139, #061426);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.avatar {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 10px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+  background: #0c2b45;
+  color: var(--cyan);
+  font-size: 24px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile h2 {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.profile p {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.menu button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: transparent;
+  color: var(--muted);
+  text-align: left;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.menu button:hover,
+.menu button.active {
+  color: var(--cyan);
+  border-color: var(--line);
+  background: #55e4ff12;
+}
+
+.menu .icon {
+  width: 22px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.socials a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.socials a:hover {
+  color: var(--cyan);
+}
+
+/* MAIN */
+
+.main {
+  min-width: 0;
+  flex: 1;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #061426b8;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 0 8px 22px;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.status {
+  color: var(--cyan);
+  letter-spacing: 0;
+}
+
+/* PAGE NAVIGATION */
+
+.page {
+  display: none;
+  animation: fadeIn .25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HOME */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px 15px;
+}
+
+.eyebrow {
+  color: var(--cyan);
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.3;
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+h1 span {
+  color: var(--cyan);
+}
+
+.subtitle {
+  color: var(--cyan);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 650px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid var(--cyan);
+  border-radius: 10px;
+  background: var(--cyan);
+  color: #04101f;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: .85;
+}
+
+.btn.secondary {
+  color: var(--cyan);
+  background: transparent;
+}
+
+/* HOME INFO CARDS */
+
+.home-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 18px 15px 8px;
+}
+
+.home-info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 90px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #102c48, #041326);
+  box-shadow: inset 0 0 20px #55e4ff08, 0 5px 15px #00000018;
+}
+
+.home-info-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: #0b2840;
+  color: var(--cyan);
+  font-size: 23px;
+}
+
+.home-info-content {
+  min-width: 0;
+}
+
+.home-info-content h3 {
+  color: var(--cyan);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.info-value {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* SECTION PAGES */
+
+.section-page {
+  padding: 17px 15px;
+}
+
+.section-label {
+  color: var(--cyan);
+  font-size: 9px;
+  letter-spacing: 1.7px;
+  margin-bottom: 7px;
+}
+
+.section-page h1 {
+  font-size: clamp(24px, 3vw, 31px);
+  margin-bottom: 12px;
+}
+
+.section-page > p {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 13px;
+}
+
+.card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #102c48, #061426);
+}
+
+.card h3 {
+  color: var(--cyan);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.card-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 9px;
+  color: var(--cyan);
+  background: #0b2840;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  font-size: 10px;
+}
+
+.project {
+  min-width: 0;
+  padding: 14px;
+  background: #07182c;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.project h3 {
+  color: var(--cyan);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.timeline {
+  margin: 15px 0 0 6px;
+  padding-left: 16px;
+  border-left: 1px solid var(--cyan);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 17px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+
+.timeline-item small {
+  color: var(--cyan);
+  font-size: 9px;
+}
+
+.timeline-item h3 {
+  font-size: 14px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* CONTACT */
+
+.contact-form {
+  display: grid;
+  gap: 10px;
+  max-width: 430px;
+  margin-top: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #06172b;
+  color: white;
+  outline: none;
+  font-size: 12px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--cyan);
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 25px;
+  padding: 10px;
+  color: #718ba6;
+  font-size: 10px;
+}
+
+#formNote {
+  margin-top: 10px;
+  color: var(--cyan);
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .shell {
+    width: 98%;
+    min-height: 96vh;
+    margin: 2vh auto;
+    padding: 5px;
+    gap: 5px;
+    border-radius: 23px;
+  }
+
+  .sidebar {
+    width: 62px;
+    padding: 10px 4px;
+    border-radius: 17px;
+  }
+
+  .profile {
+    margin-bottom: 15px;
+  }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .profile h2 {
+    font-size: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  .profile p {
+    display: none;
+  }
+
+  .menu {
+    gap: 5px;
+  }
+
+  .menu button {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    padding: 6px 1px;
+    border-radius: 7px;
+    font-size: 7px;
+    text-align: center;
+  }
+
+  .menu .icon {
+    width: auto;
+    font-size: 15px;
+  }
+
+  .socials {
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    padding-top: 14px;
+  }
+
+  .main {
+    padding: 7px;
+    border-radius: 24px;
+  }
+
+  .topbar {
+    margin: 0 3px 10px;
+    font-size: 7px;
+  }
+
+  .status {
+    font-size: 7px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 10px 6px;
+  }
+
+  h1 {
+    font-size: 27px;
+  }
+
+  .hero p {
+    font-size: 11px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+
+  .home-info {
+    margin: 12px 6px 6px;
+    gap: 10px;
+  }
+
+  .home-info-card {
+    min-height: 78px;
+    padding: 13px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+
+  .home-info-icon {
+    width: 43px;
+    height: 43px;
+    font-size: 20px;
+    border-radius: 12px;
+  }
+
+  .home-info-content h3 {
+    font-size: 11px;
+  }
+
+  .home-info-content .info-value {
+    font-size: 11px;
+  }
+
+  .section-page {
+    padding: 10px 5px;
+  }
+
+  .section-page h1 {
+    font-size: 24px;
+  }
+
+  .section-page > p {
+    font-size: 10px;
+  }
+
+  .grid {
+    gap: 7px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .card p {
+    font-size: 10px;
+  }
+
+  .project {
+    padding: 9px;
+  }
+
+  .project p {
+    font-size: 10px;
+  }
+
+  .btn {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+
+  .footer {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sidebar {
+    width: 54px;
+  }
+
+  .menu button {
+    font-size: 6px;
+  }
+
+  .hero {
+    padding: 8px 4px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="profile">
+      <div class="avatar">
+        <span>PK</span>
+        <img src="profile.jpg" alt="Profile photo"
+             onerror="this.remove()">
+      </div>
+      <h2>Priyanshu Kumar</h2>
+      <p>Code. Learn. Build.</p>
+    </div>
+
+    <nav class="menu">
+      <button class="active" data-page="home">
+        <span class="icon">⌂</span><span>Home</span>
+      </button>
+      <button data-page="about">
+        <span class="icon">♙</span><span>About Me</span>
+      </button>
+      <button data-page="coding">
+        <span class="icon">&lt;/&gt;</span><span>Coding</span>
+      </button>
+      <button data-page="hobbies">
+        <span class="icon">♧</span><span>Hobbies</span>
+      </button>
+      <button data-page="favorites">
+        <span class="icon">★</span><span>Favorites</span>
+      </button>
+      <button data-page="love">
+        <span class="icon">♡</span><span>Love</span>
+      </button>
+      <button data-page="contact">
+        <span class="icon">✉</span><span>Contact</span>
+      </button>
+    </nav>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/its_priyanshu223?stkn=MXJvNmU4ZXF4eWdpag=="
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram">◎</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <div class="topbar">
+      <span>PERSONAL PORTFOLIO</span>
+      <span class="status">● Available to Connect</span>
+    </div>
+
+    <!-- HOME -->
+    <section class="page active" id="home">
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Hello, I'm</div>
+          <h1>ℙ𝕣𝕚𝕪𝕒𝕟𝕤𝕙𝕦 <span>𝕜𝕦𝕞𝕒𝕣</span></h1>
+          <p class="subtitle">Aspiring Developer | Lifelong Learner</p>
+
+          <p>
+            𝙄 𝙚𝙣𝙟𝙤𝙮 𝙩𝙪𝙧𝙣𝙞𝙣𝙜 𝙞𝙙𝙚𝙖𝙨 𝙞𝙣𝙩𝙤 𝙧𝙚𝙖𝙡-𝙬𝙤𝙧𝙡𝙙
+            𝙥𝙧𝙤𝙟𝙚𝙘𝙩𝙨. 𝙄 𝙡𝙤𝙫𝙚 𝙘𝙤𝙙𝙞𝙣𝙜, 𝙡𝙚𝙖𝙧𝙣𝙞𝙣𝙜
+            𝙣𝙚𝙬 𝙩𝙝𝙞𝙣𝙜𝙨,𝙖𝙣𝙙 𝙘𝙤𝙣𝙨𝙩𝙖𝙣𝙩𝙡𝙮 𝙞𝙢𝙥𝙧𝙤𝙫𝙚
+            𝙢𝙮 𝙨𝙚𝙡𝙛
+          </p>
+
+          <div class="actions">
+            <button class="btn" data-go="about">Explore More →</button>
+            <button class="btn secondary" data-go="contact">Contact Me ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-info">
+        <div class="home-info-card">
+          <div class="home-info-icon">🎮</div>
+          <div class="home-info-content">
+            <h3>Free Fire UID</h3>
+            <p class="info-value">9027780827</p>
+          </div>
+        </div>
+
+        <div class="home-info-card">
+          <div class="home-info-icon">✉</div>
+          <div class="home-info-content">
+            <h3>Gmail ID</h3>
+            <p class="info-value">officialpriyanshu54321@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page section-page" id="about">
+      <div class="section-label">01 / ABOUT</div>
+      <h1>About <span>Me</span></h1>
+      <p>
+        Hey! I'm ℙ𝕣𝕚𝕪𝕒𝕟𝕤𝕙𝕦. I'm passionate about technology,
+        creativity, and learning new skills.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>👨‍💻 Who I Am</h3>
+          <p>𝘼 𝙘𝙪𝙧𝙞𝙤𝙪𝙨 𝙡𝙚𝙖𝙧𝙣𝙚𝙧 𝙚𝙭𝙥𝙡𝙤𝙧𝙞𝙣𝙜 𝙘𝙤𝙙𝙞𝙣𝙜 𝙖𝙣𝙙 𝙩𝙚𝙘𝙝𝙣𝙤𝙡𝙤𝙜𝙮.</p>
+        </div>
+
+        <div class="card">
+          <h3>📍 Location</h3>
+          <p>𝘽𝙞𝙝𝙖𝙧, 𝙎𝙖𝙝𝙖𝙧𝙨𝙖</p>
+        </div>
+
+        <div class="card">
+          <h3>⚡ My Mindset</h3>
+          <p>𝙇𝙚𝙖𝙧𝙣 𝙨𝙤𝙢𝙚𝙩𝙝𝙞𝙣𝙜 𝙣𝙚𝙬 𝙖𝙣𝙙 𝙞𝙢𝙥𝙧𝙤𝙫𝙚 𝙚𝙫𝙚𝙧𝙮 𝙙𝙖𝙮.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODING -->
+    <section class="page section-page" id="coding">
+      <div class="section-label">02 / DEVELOPMENT</div>
+      <h1>My <span>Coding</span></h1>
+      <p>My skills, projects, and journey as a developer.</p>
+
+      <h3>Languages & Skills</h3>
+      <div class="tag-list">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Responsive Design</span>
+        <span class="tag">GitHub</span>
+      </div>
+
+      <h3 style="margin-top:20px">Projects</h3>
+      <div class="grid">
+        <div class="project">
+          <h3>✦ Personal Website</h3>
+          <p>A responsive personal portfolio made with HTML, CSS and JavaScript.</p>
+          <span class="tag">HTML / CSS / JS</span>
+        </div>
+        <div class="project">
+          <h3>⌘ My Next Project</h3>
+          <p>A new idea I'm planning to build and share soon.</p>
+          <span class="tag">Coming Soon</span>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px">Learning Journey</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <small>STEP 01</small>
+          <h3>HTML & CSS</h3>
+          <p>Learning to create and style web pages.</p>
+        </div>
+        <div class="timeline-item">
+          <small>STEP 02</small>
+          <h3>JavaScript</h3>
+          <p>Exploring interactive websites.</p>
+        </div>
+        <div class="timeline-item">
+          <small>STEP 03</small>
+          <h3>Building Projects</h3>
+          <p>Creating practical projects and improving my skills.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOBBIES -->
+    <section class="page section-page" id="hobbies">
+      <div class="section-label">03 / FREE TIME</div>
+      <h1>My <span>Hobbies</span></h1>
+      <p>𝙏𝙝𝙞𝙣𝙜𝙨 𝙄 𝙚𝙣𝙟𝙤𝙮 𝙙𝙤𝙞𝙣𝙜 𝙞𝙣 𝙢𝙮 𝙛𝙧𝙚𝙚 𝙩𝙞𝙢𝙚.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Coding</h3>
+          <p>𝘽𝙪𝙞𝙡𝙙𝙞𝙣𝙜 𝙞𝙙𝙚𝙖𝙨 𝙖𝙣𝙙 𝙚𝙭𝙥𝙡𝙤𝙧𝙞𝙣𝙜 𝙩𝙚𝙘𝙝𝙣𝙤𝙡𝙤𝙜𝙮.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎮</div>
+          <h3>Gaming</h3>
+          <p>𝙋𝙡𝙖𝙮𝙞𝙣𝙜 𝙜𝙖𝙢𝙚𝙨 𝙖𝙣𝙙 𝙚𝙣𝙟𝙤𝙮𝙞𝙣𝙜 𝙘𝙝𝙖𝙡𝙡𝙚𝙣𝙜𝙚𝙨.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎵</div>
+          <h3>Music</h3>
+          <p>𝙇𝙞𝙨𝙩𝙚𝙣𝙞𝙣𝙜 𝙩𝙤 𝙢𝙪𝙨𝙞𝙘 𝙖𝙣𝙙 𝙧𝙚𝙡𝙖𝙭𝙞𝙣𝙜.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Learning</h3>
+          <p>𝘿𝙞𝙨𝙘𝙤𝙫𝙚𝙧𝙞𝙣𝙜 𝙣𝙚𝙬 𝙨𝙠𝙞𝙡𝙡𝙨 𝙖𝙣𝙙 𝙞𝙙𝙚𝙖𝙨.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAVORITES -->
+    <section class="page section-page" id="favorites">
+      <div class="section-label">04 / MY PICKS</div>
+      <h1>My <span>Favorites</span></h1>
+      <p>A few of my favorite things.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🎨 Favorite Color</h3>
+          <p>𝙉𝙖𝙫𝙮 𝘽𝙡𝙪𝙚 & 𝘾𝙮𝙖𝙣</p>
+        </div>
+        <div class="card">
+          <h3>🎧 Favorite Music</h3>
+          <p>𝘼𝙧𝙞𝙟𝙞𝙩 𝙎𝙞𝙣𝙜𝙝</p>
+        </div>
+        <div class="card">
+          <h3>🎮 Favorite Game</h3>
+          <p>𝙁𝙧𝙚𝙚 𝙁𝙞𝙧𝙚 𝙈𝙖𝙭</p>
+        </div>
+        <div class="card">
+          <h3>💡 Inspiration</h3>
+          <p>𝙆𝙚𝙚𝙥 𝙡𝙚𝙖𝙧𝙣𝙞𝙣𝙜. 𝙆𝙚𝙚𝙥 𝙗𝙪𝙞𝙡𝙙𝙞𝙣𝙜.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOVE -->
+    <section class="page section-page" id="love">
+      <div class="section-label">05 / MY WORLD</div>
+      <h1>My <span>Love</span></h1>
+      <p>A little personal space for the special part of my life.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">♡</div>
+          <h3>My GF</h3>
+          <p>Currently Unavailable</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page section-page" id="contact">
+      <div class="section-label">06 / SAY HELLO</div>
+      <h1>Contact <span>Me</span></h1>
+      <p>
+        Have a project idea or just want to say hello?
+        Feel free to connect with me.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>✉ Email</h3>
+          <p>
+            <a href="mailto:officialpriyanshu54321@gmail.com"
+               style="overflow-wrap:anywhere">
+              officialpriyanshu54321@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>◎ Instagram</h3>
+          <p>
+            <a href="https://www.instagram.com/its_priyanshu223?stkn=MXJvNmU4ZXF4eWdpag=="
+               target="_blank" rel="noopener noreferrer">
+              @its_priyanshu223
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>🎮 Free Fire UID</h3>
+          <p>9027780827</p>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Your message" required></textarea>
+        <button class="btn" type="submit">Send Message →</button>
+      </form>
+
+      <p id="formNote"></p>
+    </section>
+
+    <div class="footer">
+      © 2026 ℙ𝕣𝕚𝕪𝕒𝕟𝕤𝕙𝕦 𝕜𝕦𝕞𝕒𝕣 · Made with passion and code
+    </div>
+
+  </main>
+</div>
+
+<script>
+const buttons = document.querySelectorAll("[data-page]");
+const pages = document.querySelectorAll(".page");
+
+function openPage(id) {
+  const target = document.getElementById(id);
+
+  if (!target || !target.classList.contains("page")) return;
+
+  pages.forEach(page => {
+    page.classList.toggle("active", page.id === id);
+  });
+
+  buttons.forEach(button => {
+    button.classList.toggle("active", button.dataset.page === id);
+  });
+
+  history.replaceState(null, "", "#" + id);
+}
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    openPage(button.dataset.page);
+  });
+});
+
+document.querySelectorAll("[data-go]").forEach(button => {
+  button.addEventListener("click", () => {
+    openPage(button.dataset.go);
+  });
+});
+
+const initial = location.hash.slice(1);
+
+if (initial) {
+  openPage(initial);
+}
+
+document.getElementById("contactForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  document.getElementById("formNote").textContent =
+    "Demo only. Connect an email service to receive messages.";
+});
+</script>
+
+</body>
+</html>
